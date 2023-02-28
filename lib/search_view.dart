@@ -16,7 +16,7 @@ class _SearchViewState extends State<SearchView> {
           mainAxisAlignment:MainAxisAlignment.center,
           children: const[ Padding(
             padding: EdgeInsets.all(8.0),
-            child: Icon(Icons.home,color: Colors.pink),
+            child: Icon(Icons.search,color: Colors.pink),
           ),
             Text("Search page"),
           ],

@@ -32,38 +32,35 @@ class Main extends StatefulWidget {
 }
 
 class _MainState extends State<Main> {
-  var currentIndex = 0;
-  List<Widget> pages = [HomeView(), ProfileView(), SearchView()];
+  List<Widget> pages = [
+    HomeView(),
+    SearchView(),
+    ProfileView(),
+  ];
+  var count = 2;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.greenAccent,
-        systemOverlayStyle: SystemUiOverlayStyle.light,
+        backgroundColor: Colors.black87,
       ),
-      body: pages[currentIndex],
+      body: pages[count],
       bottomNavigationBar: BottomNavigationBar(
         items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
-          ),
+              icon: Icon(Icons.search_off_rounded), label: 'Search'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
-        backgroundColor: Colors.greenAccent,
-        unselectedItemColor: Colors.white,
+        currentIndex: count,
+        backgroundColor: Colors.black87,
         selectedItemColor: Colors.pink,
-        onTap: (newIndex) {
-          setState(() {
-            currentIndex = newIndex;
+        unselectedItemColor: Colors.white,
+        onTap: (index){
+          setState((){
+            count = index;
+            print(count);
           });
         },
       ),
